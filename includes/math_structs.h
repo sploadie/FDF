@@ -6,14 +6,12 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 19:47:30 by tgauvrit          #+#    #+#             */
-/*   Updated: 2014/12/14 11:25:00 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/02 19:04:51 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATH_STRUCTS_H
 # define MATH_STRUCTS_H
-
-# define FDF_MAP_BUF 10
 
 typedef struct			s_3d_point
 {
@@ -25,10 +23,10 @@ typedef struct			s_3d_point
 
 typedef struct			s_fdf_cam
 {
-	struct s_3d_point	*point;
-	float				x_angle;
-	float				y_angle;
-	float				z_angle;
+	t_3d_point			*point;
+	float				x_ang;
+	float				y_ang;
+	float				z_ang;
 }						t_fdf_cam;
 
 typedef struct			s_fdf_map

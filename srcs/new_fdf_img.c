@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/14 11:32:48 by tgauvrit          #+#    #+#             */
-/*   Updated: 2014/12/15 15:23:49 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/02 19:10:23 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	new_fdf_img(t_fdf_win *win)
 		fdf_error("new_fdf_img");
 	if (win->img_endian != 1)
 		fdf_error("new_fdf_img");
-	if (win->img_size_line != win->width * 8)
+	if ((unsigned int)win->img_size_line != win->width * 8)
 		fdf_error("new_fdf_img");
 }

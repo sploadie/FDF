@@ -6,13 +6,14 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 15:05:59 by tgauvrit          #+#    #+#             */
-/*   Updated: 2014/12/14 11:13:04 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/02 19:07:30 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static t_fdf_map	*to_new(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
+// static t_fdf_map	*to_new(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
+void				to_new(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
 {
 	t_3d_point	***grid;
 	size_t		i;
@@ -37,10 +38,11 @@ static t_fdf_map	*to_new(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
 	dest->width = width;
 	dest->height = height;
 	dest->grid = grid;
-	return (dest);
+	// return (dest);
 }
 
-static t_fdf_map	*to_copy(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
+// static t_fdf_map	*to_copy(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
+void				to_copy(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
 {
 	t_3d_point	***grid;
 	size_t		i;
@@ -61,7 +63,7 @@ static t_fdf_map	*to_copy(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
 	dest->width = width;
 	dest->height = height;
 	dest->grid = grid;
-	return (dest);
+	// return (dest);
 }
 
 void				trans_fdf_map(t_fdf_map **dest, t_fdf_map *src, t_fdf_cam *cam)

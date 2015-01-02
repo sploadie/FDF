@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 16:14:35 by tgauvrit          #+#    #+#             */
-/*   Updated: 2014/12/14 11:48:47 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/02 19:19:14 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 # define FDF_H
 
 # include <mlx.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <limits.h>
+# include <math.h>
 # include "libft.h"
+# include "get_next_line.h"
 # include "arraylist.h"
 # include "math_structs.h"
 
@@ -30,7 +37,7 @@ typedef struct		s_fdf_win
 	size_t			width;
 	size_t			height;
 	void			*img;
-	unsigned int	*img_data;
+	char			*img_data;
 	int				img_bits_per_pixel;
 	int				img_size_line;
 	int				img_endian;
@@ -38,9 +45,20 @@ typedef struct		s_fdf_win
 
 void				fdf_error(char *str);
 void				*check_malloc(void *ret);
+int					get_next_line(int fd, char **line);
 
-t_mlx_win			*gen_mlx_window(void *mlx, char *title, size_t x, size_t y);
-size_t				get_file_height(int fd);
-t_fdf_map			*parse_fdf_map(int	fd);
+t_fdf_win			*gen_mlx_window(void *mlx, char *title, size_t x, size_t y);
+t_fdf_cam			*gen_default_camera(void);
+void				trans_fdf_map(t_fdf_map **dest, t_fdf_map *src, t_fdf_cam *cam);
+t_3d_point			*new_3d_point(int x, int y, int z);
+void				trans_3d_point(t_3d_point *dest, t_3d_point *src, t_fdf_cam *cam);
+void				new_fdf_img(t_fdf_win *win);
+void				fdf_cam_img(t_fdf_map *map, t_fdf_win *win);
+
+size_t				get_file_height(char *path);
+size_t				get_file_width(char *path);
+t_fdf_map			*fdf_map(size_t width, size_t height);
+t_fdf_map			*parse_fdf_map(char *path);
+void				set_3d_point(t_3d_point *point, int x, int y, int z);
 
 #endif

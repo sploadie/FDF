@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_cam_img.c                                      :+:      :+:    :+:   */
+/*   set_3d_point.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 21:02:52 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/02 19:17:57 by tgauvrit         ###   ########.fr       */
+/*   Created: 2015/01/02 17:55:02 by tgauvrit          #+#    #+#             */
+/*   Updated: 2015/01/02 17:57:12 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	fdf_cam_img(t_fdf_map *map, t_fdf_win *win)
+void		set_3d_point(t_3d_point *point, int x, int y, int z)
 {
-	(void)map;
-	(void)win;
-	return ;
+	point->x = x;
+	point->y = y;
+	point->z = z;
 }

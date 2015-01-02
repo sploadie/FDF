@@ -6,19 +6,19 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 17:09:11 by tgauvrit          #+#    #+#             */
-/*   Updated: 2014/12/14 11:35:26 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/02 18:58:55 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_mlx_win	gen_mlx_window(void *mlx, char *title, size_t x, size_t y)
+t_fdf_win	*gen_mlx_window(void *mlx, char *title, size_t x, size_t y)
 {
-	t_mlx_win	*neowin;
+	t_fdf_win	*neowin;
 
-	neowin = check_malloc(malloc(sizeof(t_mlx_win)));
+	neowin = check_malloc(malloc(sizeof(t_fdf_win)));
 	neowin->win = mlx_new_window(mlx, x, y, title);
-	if (!win)
+	if (!neowin->win)
 		fdf_error(NULL);
 	neowin->mlx = mlx;
 	neowin->title = title;

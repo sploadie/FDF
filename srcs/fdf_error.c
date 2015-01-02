@@ -6,9 +6,11 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 17:32:03 by tgauvrit          #+#    #+#             */
-/*   Updated: 2014/12/04 17:34:12 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/02 18:51:07 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fdf.h"
 
 void	fdf_error(char *str)
 {
