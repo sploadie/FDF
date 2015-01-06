@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gen_default_camera.c                               :+:      :+:    :+:   */
+/*   draw_map_point_lines.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 18:31:04 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/04 16:41:11 by tgauvrit         ###   ########.fr       */
+/*   Created: 2015/01/04 11:13:08 by tgauvrit          #+#    #+#             */
+/*   Updated: 2015/01/04 13:24:22 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"fdf.h"
+#include "fdf.h"
 
-t_fdf_cam	*gen_default_camera(void)
+void	draw_map_point_lines(size_t x, size_t y, t_fdf_map *map, t_fdf_win *win)
 {
-	t_fdf_cam	*neocam;
-
-	neocam = check_malloc(malloc(sizeof(t_fdf_cam)));
-	neocam->point = new_3d_point(0, 0, 20);
-	neocam->x_ang = 0;
-	neocam->y_ang = 0;
-	neocam->z_ang = 0;
-	neocam->z_shift = 1;
-	neocam->gradient = 0;
-	neocam->zoom = 5;
-	return (neocam);
+	// ft_putstr("Draw");
+	if (x < map->width - 1)
+		draw_point_line(map->grid[y][x], map->grid[y][x + 1], win);
+	if (y < map->height - 1)
+		draw_point_line(map->grid[y][x], map->grid[y + 1][x], win);
 }

@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trans_fdf_map.c                                    :+:      :+:    :+:   */
+/*   fdf_clear_img.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:05:59 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/03 10:31:54 by tgauvrit         ###   ########.fr       */
+/*   Created: 2015/01/04 10:34:18 by tgauvrit          #+#    #+#             */
+/*   Updated: 2015/01/04 10:59:01 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-// static t_fdf_map	*to_copy(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
-void				trans_fdf_map(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
+void	fdf_clear_img(t_fdf_win *win)
 {
-	t_3d_point	***grid;
 	size_t		i;
 	size_t		j;
 	size_t		width;
 	size_t		height;
 
-	width = src->width;
-	height = src->height;
-	grid = dest->grid;
-	i = -1;
-	while (++i < height)
+	width = win->width;
+	height = win->height;
+	i = 0;
+	while (i < height)
 	{
-		j = -1;
-		while (++j < width)
-			trans_3d_point(grid[i][j], src->grid[i][j], cam);
+		j = 0;
+		while (j < width)
+			win->img_data[(i * width) + (j++)] = 0x000000;
+		i++;
 	}
-	dest->width = width;
-	dest->height = height;
-	dest->grid = grid;
-	// return (dest);
 }

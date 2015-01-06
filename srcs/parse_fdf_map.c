@@ -6,31 +6,33 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:05:01 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/02 20:30:26 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/03 09:32:59 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	read_fdf_map_row(t_3d_point **row, int y, size_t width, char *line)
+static void	read_fdf_map_row(t_fdf_map *map, int y, char *line)
 {
+	t_3d_point		**row;
 	size_t			i;
 	size_t			count;
 
+	row = map->grid[y];
 	count = 0;
 	i = 0;
 	while (line[i] != '\0')
 	{
 		if (line[i] != ' ' && (i == 0 || line[i - 1] == ' '))
 		{
-			if (count == width)
+			if (count == map->width)
 				fdf_error("read_fdf_map_row_a");
-			set_3d_point(row[count], count, y, ft_atoi(line + i));
+			set_3d_point(row[count], (count - (map->width / 2)), ((map->height / 2) - y), ft_atoi(line + i));
 			count++;
 		}
 		i++;
 	}
-	if (count != width)
+	if (count != map->width)
 		fdf_error("read_fdf_map_row_b");
 }
 
@@ -42,12 +44,12 @@ static void	read_fdf_map(t_fdf_map *map, int map_fd)
 
 	line = NULL;
 	i = 0;
-	while (i < map->height - 1)
+	while (i < map->height)
 	{
 		ret = get_next_line(map_fd, &line);
 		if (ret < 1)
 			fdf_error("read_fdf_map");
-		read_fdf_map_row(map->grid[i], i, map->width, line);
+		read_fdf_map_row(map, i, line);
 		i++;
 	}
 }

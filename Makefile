@@ -6,7 +6,7 @@
 #    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/20 16:35:37 by tgauvrit          #+#    #+#              #
-#    Updated: 2015/01/02 19:22:40 by tgauvrit         ###   ########.fr        #
+#    Updated: 2015/01/04 11:53:35 by tgauvrit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME =			FDF
 
 CC =			gcc
 
-FLAGS =			-Wall -Werror -Wextra -g
+FLAGS =			-Wall -Werror -Wextra
 
 HEADER =		fdf.h get_next_line.h math_structs.h
 
@@ -53,7 +53,16 @@ SRC_COMPILED =	main.o \
 				new_fdf_img.o \
 				fdf_map.o \
 				parse_fdf_map.o \
-				set_3d_point.o
+				set_3d_point.o \
+				draw_3d_point.o \
+				print_sp.o \
+				fdf_expose_hook.o \
+				fdf_key_hook.o \
+				fdf_mouse_hook.o \
+				fdf_loop_hook.o \
+				fdf_clear_img.o \
+				draw_map_point_lines.o \
+				draw_point_line.o
 
 COMPILED =		$(SRC_COMPILED)
 

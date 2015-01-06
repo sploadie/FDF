@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gen_default_camera.c                               :+:      :+:    :+:   */
+/*   print_sp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 18:31:04 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/04 16:41:11 by tgauvrit         ###   ########.fr       */
+/*   Created: 2015/01/02 14:28:18 by tgauvrit          #+#    #+#             */
+/*   Updated: 2015/01/03 09:41:27 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"fdf.h"
+#include "fdf.h"
 
-t_fdf_cam	*gen_default_camera(void)
+void	print_sp_left(char *str, size_t space)
 {
-	t_fdf_cam	*neocam;
+	size_t	size;
 
-	neocam = check_malloc(malloc(sizeof(t_fdf_cam)));
-	neocam->point = new_3d_point(0, 0, 20);
-	neocam->x_ang = 0;
-	neocam->y_ang = 0;
-	neocam->z_ang = 0;
-	neocam->z_shift = 1;
-	neocam->gradient = 0;
-	neocam->zoom = 5;
-	return (neocam);
+	size = ft_strlen(str);
+	while (space > size)
+	{
+		write(1, " ", 1);
+		space--;
+	}
+	write(1, str, space);
+}
+
+void	print_sp_right(char *str, size_t space)
+{
+	size_t	size;
+
+	size = ft_strlen(str);
+	if (space < size)
+		write(1, str, space);
+	else
+		write(1, str, size);
+	while (space > size)
+	{
+		write(1, " ", 1);
+		space--;
+	}
 }

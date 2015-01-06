@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gen_default_camera.c                               :+:      :+:    :+:   */
+/*   fdf_expose_hook.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 18:31:04 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/04 16:41:11 by tgauvrit         ###   ########.fr       */
+/*   Created: 2015/01/03 19:08:20 by tgauvrit          #+#    #+#             */
+/*   Updated: 2015/01/04 10:49:38 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"fdf.h"
+#include "fdf.h"
 
-t_fdf_cam	*gen_default_camera(void)
+int		fdf_expose_hook(void *env_ptr)
 {
-	t_fdf_cam	*neocam;
+	t_env	*env;
 
-	neocam = check_malloc(malloc(sizeof(t_fdf_cam)));
-	neocam->point = new_3d_point(0, 0, 20);
-	neocam->x_ang = 0;
-	neocam->y_ang = 0;
-	neocam->z_ang = 0;
-	neocam->z_shift = 1;
-	neocam->gradient = 0;
-	neocam->zoom = 5;
-	return (neocam);
+	env = env_ptr;
+	ft_putendl("Expose hook hit!");
+
+	//Generate initial camera image
+	ft_putendl("Implementing camera map to new image...");
+	new_fdf_img(env->win);
+	fdf_cam_img(env->cam_map, env->win);
+
+	return (0);
 }
