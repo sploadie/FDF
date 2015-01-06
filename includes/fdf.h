@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 16:14:35 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/04 14:09:57 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 12:58:27 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,24 @@ t_fdf_map			*parse_fdf_map(char *path);
 
 t_3d_point			*new_3d_point(int x, int y, int z);
 void				set_3d_point(t_3d_point *point, int x, int y, int z);
-void				trans_3d_point(t_3d_point *dest, t_3d_point *src, t_fdf_cam *cam);
+void				trans_3d_point(t_3d_point *dest, t_3d_point *src,
+	t_fdf_cam *cam);
 
 void				draw_3d_point(t_3d_point *point, t_fdf_win *win);
-void				draw_point_line(t_3d_point *p1, t_3d_point *p2, t_fdf_win *win);
-void				draw_map_point_lines(size_t x, size_t y, t_fdf_map *map, t_fdf_win *win);
+void				draw_point_line(t_3d_point *p1, t_3d_point *p2,
+	t_fdf_win *win);
+void				draw_map_point_lines(size_t x, size_t y, t_fdf_map *map,
+	t_fdf_win *win);
 
 t_fdf_cam			*gen_default_camera(void);
-void				trans_fdf_map(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam);
+void				trans_fdf_map(t_fdf_map *dest, t_fdf_map *src,
+	t_fdf_cam *cam);
 
 void				print_sp_left(char *str, size_t space);
 void				print_sp_right(char *str, size_t space);
 
 int					fdf_expose_hook(void *env);
-int					fdf_key_hook(int keycode,void *env);
-int					fdf_mouse_hook(int button,int x,int y,void *env);
+int					fdf_key_hook(int keycode, void *env);
+int					fdf_mouse_hook(int button, int x, int y, void *env);
 int					fdf_loop_hook(void *env);
 #endif

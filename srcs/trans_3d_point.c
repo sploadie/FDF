@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 16:21:33 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/04 15:38:26 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 10:40:27 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	trans_3d_point(t_3d_point *dest, t_3d_point *src, t_fdf_cam *cam)
 
 	rot_x = (double)((src->x - cam->point->x) * cam->zoom);
 	rot_y = (double)((src->y - cam->point->y) * cam->zoom);
-	rot_z = (double)((((double)src->z / (double)cam->z_shift) - (double)cam->point->z) * (double)cam->zoom);
+	rot_z = (double)((((double)src->z / (double)cam->z_shift) -
+		(double)cam->point->z) * (double)cam->zoom);
 	temp = rot_y;
 	rot_y = (rot_y * cos(cam->x_ang)) - (rot_z * sin(cam->x_ang));
 	rot_z = (temp * sin(cam->x_ang)) + (rot_z * cos(cam->x_ang));

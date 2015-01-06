@@ -6,7 +6,7 @@
 #    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/20 16:35:37 by tgauvrit          #+#    #+#              #
-#    Updated: 2015/01/04 11:53:35 by tgauvrit         ###   ########.fr        #
+#    Updated: 2015/01/06 13:03:40 by tgauvrit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRC_DIR =		./srcs/
 
 SRC_COMPILED =	main.o \
 				get_next_line.o \
+				get_next_line_spill.o \
 				new_3d_point.o \
 				fdf_cam_img.o \
 				get_file_height.o \

@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 16:42:07 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/02 20:31:14 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 12:56:01 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ static void		get_next_line_spill_pop(void)
 {
 	t_spill	*temp_spill;
 
-	if (!(temp_spill = get_next_line_spill))
+	if (!(temp_spill = get_next_line_spill(NULL)))
 		return ;
-	get_next_line_spill = get_next_line_spill->next;
+	get_next_line_spill(&(temp_spill->next));
 	free(temp_spill->text);
 	free(temp_spill);
 }
 
-size_t	get_file_width(char *path)
+size_t			get_file_width(char *path)
 {
 	int				fd;
 	int				ret;

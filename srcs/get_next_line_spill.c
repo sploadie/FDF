@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_3d_point.c                                    :+:      :+:    :+:   */
+/*   get_next_line_spill.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/03 16:49:07 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/06 10:27:07 by tgauvrit         ###   ########.fr       */
+/*   Created: 2015/01/06 12:33:58 by tgauvrit          #+#    #+#             */
+/*   Updated: 2015/01/06 12:54:10 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "get_next_line.h"
 
-void	draw_3d_point(t_3d_point *point, t_fdf_win *win)
+t_spill	*get_next_line_spill(t_spill **new_spill)
 {
-	int		x;
-	int		y;
+	static t_spill	*spill = NULL;
 
-	x = (int)(win->width / 2) + point->x;
-	y = (int)(win->height / 2) - point->y;
-	if (x < 0 || x >= (int)win->width ||
-		y < 0 || y >= (int)win->height ||
-		point->z > 0)
-		return ;
-	win->img_data[(y * win->width) + (x)] =
-		(int)floor(0x555555 + (point->origin_z * 0x000011));
+	if (!new_spill)
+		return (spill);
+	spill = *new_spill;
+	return (NULL);
 }

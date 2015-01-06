@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 19:47:30 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/04 15:38:41 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 10:25:51 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct			s_3d_point
 	int					z;
 	float				origin_z;
 }						t_3d_point;
-
 
 typedef struct			s_fdf_cam
 {

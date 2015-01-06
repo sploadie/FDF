@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:05:01 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/03 09:32:59 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 10:39:50 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void	read_fdf_map_row(t_fdf_map *map, int y, char *line)
 		{
 			if (count == map->width)
 				fdf_error("read_fdf_map_row_a");
-			set_3d_point(row[count], (count - (map->width / 2)), ((map->height / 2) - y), ft_atoi(line + i));
+			set_3d_point(row[count], (count - (map->width / 2)),
+				((map->height / 2) - y), ft_atoi(line + i));
 			count++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/04 11:16:36 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/04 15:18:12 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 12:25:18 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@ static void	draw_per_x(t_3d_point p1, t_3d_point p2, t_fdf_win *win)
 	b = (double)p1.y - ((double)p1.x * m);
 	plus = ((p1.x < p2.x) ? 1 : -1);
 	z_calc = (double)p1.origin_z;
-	z_plus = (double)(p2.origin_z - p1.origin_z) / (double)(abs(p2.x - p1.x) ?: 1);
-	// ft_putstr(ft_itoa((p2.origin_z - p1.origin_z)));
-	// ft_putstr(" / ");
-	// ft_putstr(ft_itoa((int)(abs(p2.x - p1.x) ?: 1)));
-	// ft_putstr(" = ");
-	// ft_putendl(ft_itoa((int)floor(z_plus * (double)1000)));
+	z_plus = (double)abs(p2.x - p1.x);
+	if (!z_plus)
+		z_plus = 1;
+	z_plus = (double)(p2.origin_z - p1.origin_z) / z_plus;
 	while (p1.x != p2.x)
 	{
 		p1.x += plus;
@@ -52,7 +50,10 @@ static void	draw_per_y(t_3d_point p1, t_3d_point p2, t_fdf_win *win)
 	b = (double)p1.x - ((double)p1.y / m);
 	plus = ((p1.y < p2.y) ? 1 : -1);
 	z_calc = (double)p1.origin_z;
-	z_plus = (double)(p2.origin_z - p1.origin_z) / (double)(abs(p2.y - p1.y) ?: 1);
+	z_plus = (double)abs(p2.y - p1.y);
+	if (!z_plus)
+		z_plus = 1;
+	z_plus = (double)(p2.origin_z - p1.origin_z) / z_plus;
 	while (p1.y != p2.y)
 	{
 		p1.y += plus;

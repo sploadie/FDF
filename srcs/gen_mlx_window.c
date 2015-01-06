@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 17:09:11 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/02 18:58:55 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 10:36:14 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_fdf_win	*gen_mlx_window(void *mlx, char *title, size_t x, size_t y)
 {
 	t_fdf_win	*neowin;
 
+	if (!mlx)
+		fdf_error(NULL);
 	neowin = check_malloc(malloc(sizeof(t_fdf_win)));
 	neowin->win = mlx_new_window(mlx, x, y, title);
 	if (!neowin->win)

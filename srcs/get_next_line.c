@@ -6,23 +6,18 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 18:06:15 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/02 19:48:23 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 12:54:56 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define GET_NEXT_LINE_FILE
 #include "get_next_line.h"
-
-/*
-** USES A GLOBAL: get_next_line_spill;
-*/
 
 static t_spill	*get_spill(int const fd)
 {
 	t_spill			*curr_spill;
 
-	curr_spill = get_next_line_spill;
-	while (curr_spill)
+	curr_spill = get_next_line_spill(NULL);
+	while (curr_spill != NULL)
 	{
 		if (curr_spill->fd == fd)
 			return (curr_spill);
@@ -36,8 +31,8 @@ static t_spill	*get_spill(int const fd)
 	if (!curr_spill->text)
 		return (NULL);
 	*(curr_spill->text) = '\0';
-	curr_spill->next = get_next_line_spill;
-	get_next_line_spill = curr_spill;
+	curr_spill->next = get_next_line_spill(NULL);
+	get_next_line_spill(&curr_spill);
 	return (curr_spill);
 }
 

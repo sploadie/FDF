@@ -6,14 +6,13 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 15:05:59 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/03 10:31:54 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/06 10:40:54 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-// static t_fdf_map	*to_copy(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
-void				trans_fdf_map(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
+void	trans_fdf_map(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
 {
 	t_3d_point	***grid;
 	size_t		i;
@@ -34,5 +33,4 @@ void				trans_fdf_map(t_fdf_map *dest, t_fdf_map *src, t_fdf_cam *cam)
 	dest->width = width;
 	dest->height = height;
 	dest->grid = grid;
-	// return (dest);
 }
