@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 16:23:47 by tgauvrit          #+#    #+#             */
-/*   Updated: 2015/01/04 17:08:17 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2015/01/08 09:22:32 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_fdf_win	*first_window(void *mlx, int argnum, char **argv)
 			DEF_TITLE, ft_atoi(argv[1]), ft_atoi(argv[2]));
 	else if (argnum == 4)
 		win = gen_mlx_window(mlx,
-			argv[1], ft_atoi(argv[2]), ft_atoi(argv[3]));
+			argv[3], ft_atoi(argv[1]), ft_atoi(argv[2]));
 	if (!win)
 		fdf_error(NULL);
 	return (win);
