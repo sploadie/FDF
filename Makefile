@@ -6,11 +6,11 @@
 #    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/20 16:35:37 by tgauvrit          #+#    #+#              #
-#    Updated: 2015/01/06 13:03:40 by tgauvrit         ###   ########.fr        #
+#    Updated: 2015/01/24 15:39:36 by tgauvrit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =			FDF
+NAME =			fdf
 
 CC =			gcc
 
